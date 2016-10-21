@@ -77,112 +77,6 @@
     <div class="outer">
       <section id="main">
   
-    <article id="post-node从入门到放弃" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <h3 href="/2016/10/21/node从入门到放弃/" class="article-date">
-  <time datetime="2016-10-21T13:45:28.000Z" itemprop="datePublished">2016-10-21</time>
-</h3>
-    
-  </div>
-  <div class="article-inner">
-  <div class="curve-down">
-  <div class="fill-content">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/21/node从入门到放弃/">node从入门到放弃</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-        <h2 id="什么是node"><a href="#什么是node" class="headerlink" title="什么是node"></a>什么是node</h2><p>`<br>const http = require(‘http’) // 构建 http 服务模块<br>const config = require(‘./config’) // 配置文件模块<br>const fs = require(‘fs’) // 文件操作模块<br>const url = require(‘url’) // 解析处理 url 模块<br>const path = require(‘path’) // 解析处理文件路径的模块</p>
-<p>http<br>  .createServer((req, res) =&gt; {<br>    // 使用 url 模块的 parse 方法将当前请求 url 转换成一个对象<br>    // 得到 请求路径、查询字符串等信息<br>    // 第二个参数的意思是解析的同时将 解析之后的对象中的 query 属性自动转为一个对象<br>    const urlObj = url.parse(req.url, true)</p>
-<pre><code>// 得到请求路径，不包含查询字符串
-const pathname = urlObj.pathname
-
-// 得到查询字符串
-const query = urlObj.query
-
-// 根据不同的请求路径做不同的处理响应
-// /node_modules/bootstrap/dist/css/bootstrap.css
-// /node_modules/jquery/dist/jquery.js
-// /node_modules/bootstrap/dist/js/bootstrap.js
-// es6 中 字符串的 startsWith 方法可以用来判定一个字符串是否是以指定的字符串开头的
-// 如果是 ，返回 true，否则返回 false
-if (pathname.startsWith(&apos;/node_modules/&apos;) || pathname.startsWith(&apos;/public/&apos;)) {
-  fs.readFile(`.${pathname}`, (err, data) =&gt; {
-    if (err) {
-      throw err
-    }
-    res.end(data)
-  })
-} else if (pathname === &apos;/&apos;) {
-  fs.readFile(&apos;./views/index.html&apos;, (err, data) =&gt; {
-    if (err) {
-      throw err
-    }
-    res.end(data)
-  })
-} else if (pathname === &apos;/album&apos;) {
-  fs.readFile(&apos;./views/album.html&apos;, (err, data) =&gt; {
-    if (err) {
-      throw err
-    }
-    res.end(data)
-  })
-} else if (pathname === &apos;/getAlbums&apos;) {
-  fs.readdir(config.uploadDir, (err, files) =&gt; {
-    if (err) {
-      throw err
-    }
-    let albums = []
-    files.forEach(item =&gt; {
-      const currentPath = path.join(config.uploadDir, item)
-      if (fs.statSync(currentPath).isDirectory()) {
-        albums.push(item)
-      }
-    })
-    res.writeHead(200, {
-      &apos;Content-Type&apos;: &apos;text/plain; charset=utf-8&apos;
-    })
-    // 将数组转成 json 格式字符串，响应给客户端
-    // JSON.stringify 可以将一个 json 对象转换为 json 格式字符串
-    // es6 中，如果一个对象的属性名和值引用的变量名是一样的，可以直接省略写一个即可
-    res.end(JSON.stringify({
-      albums
-    }))
-  })
-} else {
-  res.end(&apos;404 Not Found.&apos;)
-}
-</code></pre><p>  })<br>  .listen(config.port, config.host, () =&gt; {<br>    console.log(<code>server is running at port ${config.port}</code>)<br>    console.log(<code>Please visit http://${config.host}:${config.port}/</code>)<br>  })</p>
-<p>`</p>
-<h2 id="node是一个后端javascript运行平台，借助该平台让js操作文件，访问网络等，从而实现js开发后台程序"><a href="#node是一个后端javascript运行平台，借助该平台让js操作文件，访问网络等，从而实现js开发后台程序" class="headerlink" title="node是一个后端javascript运行平台，借助该平台让js操作文件，访问网络等，从而实现js开发后台程序"></a>node是一个后端javascript运行平台，借助该平台让js操作文件，访问网络等，从而实现js开发后台程序</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <div class="article-footer-content">
-        
-        <a data-url="http://yoursite.com/2016/10/21/node从入门到放弃/" data-id="ciuju5o2r00016cl2lhprawrl" class="article-share-link">Share</a>
-        
-      </div>
-    </footer>
-  </div>
-  </div>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <h3 href="/2016/10/20/hello-world/" class="article-date">
@@ -236,6 +130,51 @@ if (pathname.startsWith(&apos;/node_modules/&apos;) || pathname.startsWith(&apos
 
 
   
+    <article id="post-node从入门到放弃" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <h3 href="/2014/10/21/node从入门到放弃/" class="article-date">
+  <time datetime="2014-10-21T13:45:28.000Z" itemprop="datePublished">2014-10-21</time>
+</h3>
+    
+  </div>
+  <div class="article-inner">
+  <div class="curve-down">
+  <div class="fill-content">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/21/node从入门到放弃/">node从入门到放弃</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        <h2 id="什么是node"><a href="#什么是node" class="headerlink" title="什么是node"></a>什么是node</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>) <span class="comment">// 构建 http 服务模块</span></div><div class="line"><span class="keyword">const</span> config = <span class="built_in">require</span>(<span class="string">'./config'</span>) <span class="comment">// 配置文件模块</span></div><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>) <span class="comment">// 文件操作模块</span></div><div class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>) <span class="comment">// 解析处理 url 模块</span></div><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>) <span class="comment">// 解析处理文件路径的模块</span></div><div class="line"></div><div class="line">http</div><div class="line">  .createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 使用 url 模块的 parse 方法将当前请求 url 转换成一个对象</span></div><div class="line">    <span class="comment">// 得到 请求路径、查询字符串等信息</span></div><div class="line">    <span class="comment">// 第二个参数的意思是解析的同时将 解析之后的对象中的 query 属性自动转为一个对象</span></div><div class="line">    <span class="keyword">const</span> urlObj = url.parse(req.url, <span class="literal">true</span>)</div><div class="line"></div><div class="line">    <span class="comment">// 得到请求路径，不包含查询字符串</span></div><div class="line">    <span class="keyword">const</span> pathname = urlObj.pathname</div><div class="line"></div><div class="line">    <span class="comment">// 得到查询字符串</span></div><div class="line">    <span class="keyword">const</span> query = urlObj.query</div><div class="line"></div><div class="line">    <span class="comment">// 根据不同的请求路径做不同的处理响应</span></div><div class="line">    <span class="comment">// /node_modules/bootstrap/dist/css/bootstrap.css</span></div><div class="line">    <span class="comment">// /node_modules/jquery/dist/jquery.js</span></div><div class="line">    <span class="comment">// /node_modules/bootstrap/dist/js/bootstrap.js</span></div><div class="line">    <span class="comment">// es6 中 字符串的 startsWith 方法可以用来判定一个字符串是否是以指定的字符串开头的</span></div><div class="line">    <span class="comment">// 如果是 ，返回 true，否则返回 false</span></div><div class="line">    <span class="keyword">if</span> (pathname.startsWith(<span class="string">'/node_modules/'</span>) || pathname.startsWith(<span class="string">'/public/'</span>)) &#123;</div><div class="line">      fs.readFile(<span class="string">`.<span class="subst">$&#123;pathname&#125;</span>`</span>, (err, data) =&gt; &#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">          <span class="keyword">throw</span> err</div><div class="line">        &#125;</div><div class="line">        res.end(data)</div><div class="line">      &#125;)</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pathname === <span class="string">'/'</span>) &#123;</div><div class="line">      fs.readFile(<span class="string">'./views/index.html'</span>, (err, data) =&gt; &#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">          <span class="keyword">throw</span> err</div><div class="line">        &#125;</div><div class="line">        res.end(data)</div><div class="line">      &#125;)</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pathname === <span class="string">'/album'</span>) &#123;</div><div class="line">      fs.readFile(<span class="string">'./views/album.html'</span>, (err, data) =&gt; &#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">          <span class="keyword">throw</span> err</div><div class="line">        &#125;</div><div class="line">        res.end(data)</div><div class="line">      &#125;)</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pathname === <span class="string">'/getAlbums'</span>) &#123;</div><div class="line">      fs.readdir(config.uploadDir, (err, files) =&gt; &#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">          <span class="keyword">throw</span> err</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">let</span> albums = []</div><div class="line">        files.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</div><div class="line">          <span class="keyword">const</span> currentPath = path.join(config.uploadDir, item)</div><div class="line">          <span class="keyword">if</span> (fs.statSync(currentPath).isDirectory()) &#123;</div><div class="line">            albums.push(item)</div><div class="line">          &#125;</div><div class="line">        &#125;)</div><div class="line">        res.writeHead(<span class="number">200</span>, &#123;</div><div class="line">          <span class="string">'Content-Type'</span>: <span class="string">'text/plain; charset=utf-8'</span></div><div class="line">        &#125;)</div><div class="line">        <span class="comment">// 将数组转成 json 格式字符串，响应给客户端</span></div><div class="line">        <span class="comment">// JSON.stringify 可以将一个 json 对象转换为 json 格式字符串</span></div><div class="line">        <span class="comment">// es6 中，如果一个对象的属性名和值引用的变量名是一样的，可以直接省略写一个即可</span></div><div class="line">        res.end(<span class="built_in">JSON</span>.stringify(&#123;</div><div class="line">          albums</div><div class="line">        &#125;))</div><div class="line">      &#125;)</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      res.end(<span class="string">'404 Not Found.'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">  .listen(config.port, config.host, () =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`server is running at port <span class="subst">$&#123;config.port&#125;</span>`</span>)</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`    Please visit http://<span class="subst">$&#123;config.host&#125;</span>:<span class="subst">$&#123;config.port&#125;</span>/`</span>)</div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
+<h2 id="node是一个后端javascript运行平台，借助该平台让js操作文件，访问网络等，从而实现js开发后台程序"><a href="#node是一个后端javascript运行平台，借助该平台让js操作文件，访问网络等，从而实现js开发后台程序" class="headerlink" title="node是一个后端javascript运行平台，借助该平台让js操作文件，访问网络等，从而实现js开发后台程序"></a>node是一个后端javascript运行平台，借助该平台让js操作文件，访问网络等，从而实现js开发后台程序</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <div class="article-footer-content">
+        
+        <a data-url="http://yoursite.com/2014/10/21/node从入门到放弃/" data-id="ciuju5o2r00016cl2lhprawrl" class="article-share-link">Share</a>
+        
+      </div>
+    </footer>
+  </div>
+  </div>
+  </div>
+  
+</article>
+
+
+
+  
   
 </section>
       
@@ -248,11 +187,11 @@ if (pathname.startsWith(&apos;/node_modules/&apos;) || pathname.startsWith(&apos
       <ul>
         
           <li>
-            <a href="/2016/10/21/node从入门到放弃/">node从入门到放弃</a>
+            <a href="/2016/10/20/hello-world/">Hello World</a>
           </li>
         
           <li>
-            <a href="/2016/10/20/hello-world/">Hello World</a>
+            <a href="/2014/10/21/node从入门到放弃/">node从入门到放弃</a>
           </li>
         
       </ul>
@@ -266,7 +205,7 @@ if (pathname.startsWith(&apos;/node_modules/&apos;) || pathname.startsWith(&apos
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 

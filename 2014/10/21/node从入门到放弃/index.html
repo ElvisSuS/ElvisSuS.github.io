@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  
+  <title>node从入门到放弃 | happy blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是node1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677const http = require(&apos;http&apos;) // 构建 http 服务模块cons">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node从入门到放弃">
+<meta property="og:url" content="http://yoursite.com/2014/10/21/node从入门到放弃/index.html">
+<meta property="og:site_name" content="happy blog">
+<meta property="og:description" content="什么是node1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677const http = require(&apos;http&apos;) // 构建 http 服务模块cons">
+<meta property="og:updated_time" content="2016-10-21T13:53:08.171Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node从入门到放弃">
+<meta name="twitter:description" content="什么是node1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677const http = require(&apos;http&apos;) // 构建 http 服务模块cons">
+  
+    <link rel="alternative" href="/atom.xml" title="happy blog" type="application/atom+xml">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+  
+
+</head>
+
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <nav id="upper-nav" class="inner">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <div class="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        
+          <a id="nav-github" class="nav-icon" href="https://github.com/myname"></a>
+        
+      </div>
+    </nav>
+    <div id="header-title">
+      
+        <h1 id="blog-title-wrap">
+          <a href="/" id="blog-title">My Blog</a>
+        </h1>
+      
+    </div>
+    <div id="contenedor">
+      <ul class="cube">
+        <li class="cara">MyLogo</li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+      </ul>
+    </div>
+    <nav id="main-nav">
+      
+        <a class="main-nav-link" href="/">Home</a>
+      
+        <a class="main-nav-link" href="/archives">Archives</a>
+      
+        <a class="main-nav-link" href="/about">About</a>
+      
+      <a class="main-nav-link st-search-show-outputs">Search</a>
+    </nav>
+  </div>
+</header>
+
+    <div class="outer">
+      <section id="main"><article id="post-node从入门到放弃" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <h3 href="/2014/10/21/node从入门到放弃/" class="article-date">
+  <time datetime="2014-10-21T13:45:28.000Z" itemprop="datePublished">2014-10-21</time>
+</h3>
+    
+  </div>
+  <div class="article-inner">
+  <div class="curve-down">
+  <div class="fill-content">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      node从入门到放弃
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        <h2 id="什么是node"><a href="#什么是node" class="headerlink" title="什么是node"></a>什么是node</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>) <span class="comment">// 构建 http 服务模块</span></div><div class="line"><span class="keyword">const</span> config = <span class="built_in">require</span>(<span class="string">'./config'</span>) <span class="comment">// 配置文件模块</span></div><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>) <span class="comment">// 文件操作模块</span></div><div class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>) <span class="comment">// 解析处理 url 模块</span></div><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>) <span class="comment">// 解析处理文件路径的模块</span></div><div class="line"></div><div class="line">http</div><div class="line">  .createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 使用 url 模块的 parse 方法将当前请求 url 转换成一个对象</span></div><div class="line">    <span class="comment">// 得到 请求路径、查询字符串等信息</span></div><div class="line">    <span class="comment">// 第二个参数的意思是解析的同时将 解析之后的对象中的 query 属性自动转为一个对象</span></div><div class="line">    <span class="keyword">const</span> urlObj = url.parse(req.url, <span class="literal">true</span>)</div><div class="line"></div><div class="line">    <span class="comment">// 得到请求路径，不包含查询字符串</span></div><div class="line">    <span class="keyword">const</span> pathname = urlObj.pathname</div><div class="line"></div><div class="line">    <span class="comment">// 得到查询字符串</span></div><div class="line">    <span class="keyword">const</span> query = urlObj.query</div><div class="line"></div><div class="line">    <span class="comment">// 根据不同的请求路径做不同的处理响应</span></div><div class="line">    <span class="comment">// /node_modules/bootstrap/dist/css/bootstrap.css</span></div><div class="line">    <span class="comment">// /node_modules/jquery/dist/jquery.js</span></div><div class="line">    <span class="comment">// /node_modules/bootstrap/dist/js/bootstrap.js</span></div><div class="line">    <span class="comment">// es6 中 字符串的 startsWith 方法可以用来判定一个字符串是否是以指定的字符串开头的</span></div><div class="line">    <span class="comment">// 如果是 ，返回 true，否则返回 false</span></div><div class="line">    <span class="keyword">if</span> (pathname.startsWith(<span class="string">'/node_modules/'</span>) || pathname.startsWith(<span class="string">'/public/'</span>)) &#123;</div><div class="line">      fs.readFile(<span class="string">`.<span class="subst">$&#123;pathname&#125;</span>`</span>, (err, data) =&gt; &#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">          <span class="keyword">throw</span> err</div><div class="line">        &#125;</div><div class="line">        res.end(data)</div><div class="line">      &#125;)</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pathname === <span class="string">'/'</span>) &#123;</div><div class="line">      fs.readFile(<span class="string">'./views/index.html'</span>, (err, data) =&gt; &#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">          <span class="keyword">throw</span> err</div><div class="line">        &#125;</div><div class="line">        res.end(data)</div><div class="line">      &#125;)</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pathname === <span class="string">'/album'</span>) &#123;</div><div class="line">      fs.readFile(<span class="string">'./views/album.html'</span>, (err, data) =&gt; &#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">          <span class="keyword">throw</span> err</div><div class="line">        &#125;</div><div class="line">        res.end(data)</div><div class="line">      &#125;)</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pathname === <span class="string">'/getAlbums'</span>) &#123;</div><div class="line">      fs.readdir(config.uploadDir, (err, files) =&gt; &#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">          <span class="keyword">throw</span> err</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">let</span> albums = []</div><div class="line">        files.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</div><div class="line">          <span class="keyword">const</span> currentPath = path.join(config.uploadDir, item)</div><div class="line">          <span class="keyword">if</span> (fs.statSync(currentPath).isDirectory()) &#123;</div><div class="line">            albums.push(item)</div><div class="line">          &#125;</div><div class="line">        &#125;)</div><div class="line">        res.writeHead(<span class="number">200</span>, &#123;</div><div class="line">          <span class="string">'Content-Type'</span>: <span class="string">'text/plain; charset=utf-8'</span></div><div class="line">        &#125;)</div><div class="line">        <span class="comment">// 将数组转成 json 格式字符串，响应给客户端</span></div><div class="line">        <span class="comment">// JSON.stringify 可以将一个 json 对象转换为 json 格式字符串</span></div><div class="line">        <span class="comment">// es6 中，如果一个对象的属性名和值引用的变量名是一样的，可以直接省略写一个即可</span></div><div class="line">        res.end(<span class="built_in">JSON</span>.stringify(&#123;</div><div class="line">          albums</div><div class="line">        &#125;))</div><div class="line">      &#125;)</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      res.end(<span class="string">'404 Not Found.'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">  .listen(config.port, config.host, () =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`server is running at port <span class="subst">$&#123;config.port&#125;</span>`</span>)</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`    Please visit http://<span class="subst">$&#123;config.host&#125;</span>:<span class="subst">$&#123;config.port&#125;</span>/`</span>)</div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
+<h2 id="node是一个后端javascript运行平台，借助该平台让js操作文件，访问网络等，从而实现js开发后台程序"><a href="#node是一个后端javascript运行平台，借助该平台让js操作文件，访问网络等，从而实现js开发后台程序" class="headerlink" title="node是一个后端javascript运行平台，借助该平台让js操作文件，访问网络等，从而实现js开发后台程序"></a>node是一个后端javascript运行平台，借助该平台让js操作文件，访问网络等，从而实现js开发后台程序</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <div class="article-footer-content">
+        
+        <a data-url="http://yoursite.com/2014/10/21/node从入门到放弃/" data-id="ciuju5o2r00016cl2lhprawrl" class="article-share-link">Share</a>
+        
+      </div>
+    </footer>
+  </div>
+  </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/20/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/10/20/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/21/node从入门到放弃/">node从入门到放弃</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/sun11/hexo-theme-paperbox" target="_blank">Paperbox</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+  <a href="#search" class="mobile-nav-link st-search-show-outputs">Search</a>
+</nav>
+  
+
+<!-- totop start -->
+<div id="totop">
+	<a title="To Top"></a>
+</div>
+<!-- totop end -->
+
+<!-- swiftype search start -->
+
+<!-- swiftype search end -->
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/lrsjng.jquery-qrcode/0.12.0/jquery.qrcode.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>
